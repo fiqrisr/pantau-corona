@@ -4,7 +4,7 @@
   "description": "Simple website to track Covid-19 statistics in Indonesia and world",
   "main": "index.js",
   "scripts": {
-    "start-dev": "webpack-web-server --config webpack.dev.js",
+    "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
   "repository": {
@@ -18,7 +18,9 @@
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
@@ -27,6 +29,9 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "axios": "^0.19.2",
+    "efrolic": "^0.2.9",
     "normalize.css": "^8.0.1",
     "regenerator-runtime": "^0.13.5"
   }

@@ -1,7 +1,7 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
 
-module.exports = {
+module.exports = merge(common, {
     mode: 'production',
     module: {
         rules: [
@@ -12,11 +12,11 @@ module.exports = {
                     {
                         loader: 'babel-loader',
                         options: {
-                            presets: '@babel/preset-env',
+                            presets: ['@babel/preset-env'],
                         },
                     },
                 ],
             },
         ],
     },
-};
+});
