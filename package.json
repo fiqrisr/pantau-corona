@@ -1,0 +1,33 @@
+{
+  "name": "track-covid-19",
+  "version": "1.0.0",
+  "description": "Simple website to track Covid-19 statistics in Indonesia and world",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "webpack-web-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://fiqrisr@bitbucket.org/fiqrisr/track-covid-19.git"
+  },
+  "author": "Fiqri Syah Redha",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/fiqrisr/track-covid-19#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
+    "html-webpack-plugin": "^4.3.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "regenerator-runtime": "^0.13.5"
+  }
+}
