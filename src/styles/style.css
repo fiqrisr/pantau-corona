@@ -2,6 +2,32 @@
     margin-bottom: 50px;
 }
 
+.e-container {
+    width: 92.50%;
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+    .e-container {
+        max-width: 720px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .e-container {
+        max-width: 976px;
+    }
+}
+
+.card-title {
+    font-size: 2rem;
+}
+
+.card-text {
+    font-size: 1.1rem;
+    margin: 5px 0;
+}
+
 .e-nav {
     z-index: 20;
 }

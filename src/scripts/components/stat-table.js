@@ -17,7 +17,7 @@ class StatTable extends HTMLElement {
         this.innerHTML = `
 			<table class="e-table">
 				<thead>
-					${this._tableHeader.map((header) => `<th>${header}</th>`).join('')}
+					${this._tableHeader.map((header) => `<th class="text-center">${header}</th>`).join('')}
 				</thead>
 				<tbody id="stat-table-data">
 				</tbody>

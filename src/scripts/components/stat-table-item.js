@@ -3,16 +3,17 @@ class StatTableItem extends HTMLElement {
         super();
     }
 
+    connectedCallback() {
+        this.render();
+    }
+
     set data(data) {
         this._data = data;
-        this.render();
     }
 
     render() {
         this.innerHTML = `
-			<tr>
-				${this._data.map((item) => `<td>${item}</td>`).join('')}
-			</tr>
+			${this._data.map((item) => `<td>${item}</td>`).join('')}
 		`;
     }
 }

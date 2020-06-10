@@ -26,7 +26,7 @@ export async function getProvinsiStatistics() {
                 },
             }
         );
-        return result.data[0];
+        return result.data;
     } catch (e) {
         alert('Terjadi kesalahan saat menerima data provinsi dari server');
     }

@@ -21,9 +21,9 @@ class CardFigure extends HTMLElement {
 
     render() {
         this.innerHTML = `
-			<div class="e-card ${this._color}">
+			<div class="e-card e-x shadow-4 ${this._color}">
 				<div class="card-body">
-					<h3 class="card-title">${this._title}</h3>
+					<h3 class="card-title text-bold">${this._title}</h3>
 					<p class="card-text">${this._text}</p>
 				</div>
 			</div>
