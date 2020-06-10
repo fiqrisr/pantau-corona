@@ -14,8 +14,18 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
             },
             {
-                test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-                use: ['file-loader'],
+                test: /\.(png|jpg|jpeg|gif|svg)$/,
+                loader: 'file-loader',
+                options: {
+                    outputPath: 'images',
+                },
+            },
+            {
+                test: /\.(woff|woff2|ttf|eot)$/,
+                loader: 'file-loader',
+                options: {
+                    outputPath: 'fonts',
+                },
             },
         ],
     },

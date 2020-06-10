@@ -1,3 +1,7 @@
+.mt-4 {
+    margin-top: 50px;
+}
+
 .mb-4 {
     margin-bottom: 50px;
 }
@@ -19,6 +23,10 @@
     }
 }
 
+.card-body {
+    position: relative;
+}
+
 .card-title {
     font-size: 2rem;
 }
@@ -26,6 +34,15 @@
 .card-text {
     font-size: 1.1rem;
     margin: 5px 0;
+}
+
+.figure-icon {
+    position: absolute;
+    font-size: 1.8rem;
+    margin: 0;
+    right: 10px;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .e-nav {

@@ -11,6 +11,13 @@ const elements = {
     tableContainer: document.querySelector('.statistic-provinsi'),
 };
 
+function addIconToFigure(parent, iconName) {
+    const icon = document.createElement('p');
+    icon.innerHTML = `<i class="fas fa-${iconName}"></i>`;
+    icon.classList.add('figure-icon');
+    parent.appendChild(icon);
+}
+
 function renderLoader(parent) {
     const loader = `
         <div class="spinner">
@@ -74,6 +81,11 @@ function createSummaryStatisticsFigure(data) {
         elements.summaryCol[1].appendChild(dirawatCard);
         elements.summaryCol[2].appendChild(sembuhCard);
         elements.summaryCol[3].appendChild(meninggalCard);
+
+        addIconToFigure(positifCard.querySelector('.card-body'), 'lungs-virus');
+        addIconToFigure(dirawatCard.querySelector('.card-body'), 'hand-holding-medical');
+        addIconToFigure(sembuhCard.querySelector('.card-body'), 'smile-beam');
+        addIconToFigure(meninggalCard.querySelector('.card-body'), 'dizzy');
     } catch (e) {
         alert('Terjadi kesalahan saat merender statistik');
     }
