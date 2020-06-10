@@ -1,5 +1,3 @@
-import './stat-table-item.js';
-
 class StatTable extends HTMLElement {
     constructor() {
         super();

@@ -4,7 +4,7 @@ import { getSummaryStatistics, getProvinsiStatistics } from './data/api';
 import './components/card-figure.js';
 import './components/stat-table.js';
 
-const elements = {
+const basicElements = {
     container: document.querySelector('.e-container'),
     spinnerOverlay: document.querySelector('.spinner-overlay'),
     summaryCol: document.querySelectorAll('.figure-col'),
@@ -29,7 +29,7 @@ function renderLoader(parent) {
 }
 
 function clearLoader() {
-    const loader = elements.spinnerOverlay;
+    const loader = basicElements.spinnerOverlay;
     if (loader) loader.parentElement.removeChild(loader);
 }
 
@@ -47,7 +47,7 @@ function createNavbar() {
             'Statistik Covid-19': ['Indonesia', 'Dunia'],
         };
 
-        elements.container.insertAdjacentElement('beforebegin', navbar);
+        basicElements.container.insertAdjacentElement('beforebegin', navbar);
         navbar.appendChild(sideNav);
     } catch (e) {
         alert('Terjadi kesalahan saat merender navbar');
@@ -77,10 +77,10 @@ function createSummaryStatisticsFigure(data) {
         meninggalCard.text = 'Meninggal';
         meninggalCard.color = 'danger';
 
-        elements.summaryCol[0].appendChild(positifCard);
-        elements.summaryCol[1].appendChild(dirawatCard);
-        elements.summaryCol[2].appendChild(sembuhCard);
-        elements.summaryCol[3].appendChild(meninggalCard);
+        basicElements.summaryCol[0].appendChild(positifCard);
+        basicElements.summaryCol[1].appendChild(dirawatCard);
+        basicElements.summaryCol[2].appendChild(sembuhCard);
+        basicElements.summaryCol[3].appendChild(meninggalCard);
 
         addIconToFigure(positifCard.querySelector('.card-body'), 'lungs-virus');
         addIconToFigure(dirawatCard.querySelector('.card-body'), 'hand-holding-medical');
@@ -91,21 +91,11 @@ function createSummaryStatisticsFigure(data) {
     }
 }
 
-function createProvinsiStatisticsData(data) {
-    try {
-        const tableItem = document.createElement('stat-table-item');
-        tableItem.data = data;
-        return tableItem;
-    } catch (e) {
-        alert('Terjadi kesalahan saat merender statistik per provinsi');
-    }
-}
-
 function createProvinsiStatisticsTable(tableHeader, tableData) {
     try {
         const tableStat = document.createElement('stat-table');
         tableStat.tableHeader = tableHeader;
-        elements.tableContainer.appendChild(tableStat);
+        basicElements.tableContainer.appendChild(tableStat);
 
         const tableDataContainer = tableStat.querySelector('#stat-table-data');
 
@@ -133,28 +123,22 @@ function createProvinsiStatisticsTable(tableHeader, tableData) {
 // MAIN APPLICATION ENTRY
 
 async function main() {
-    renderLoader(elements.spinnerOverlay);
+    renderLoader(basicElements.spinnerOverlay);
 
     try {
         const statTableHeaderIndonesia = ['Provinsi', 'Positif', 'Sembuh', 'Meninggal'];
-        /*let statTableData = [
-            ['12', '13', '23', '42'],
-            ['13', '14', '50', '100'],
-        ];*/
 
         createNavbar();
 
         const statIndonesia = await getSummaryStatistics();
-
         const statTableData = await getProvinsiStatistics();
-        console.log(statTableData);
 
         createSummaryStatisticsFigure(statIndonesia);
         createProvinsiStatisticsTable(statTableHeaderIndonesia, statTableData);
 
         clearLoader();
     } catch (e) {
-        alert('Silahkan refresh ulang halaman');
+        alert('Halaman gagal dimuat. Silahkan refresh ulang halaman');
     }
 }
 
