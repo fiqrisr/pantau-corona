@@ -5,35 +5,29 @@ import './components/card-figure.js';
 import './components/stat-table.js';
 
 const basicElements = {
+    header: document.querySelector('header'),
     container: document.querySelector('.e-container'),
     spinnerOverlay: document.querySelector('.spinner-overlay'),
     summaryCol: document.querySelectorAll('.figure-col'),
     tableContainer: document.querySelector('.statistic-provinsi'),
 };
 
-function addIconToFigure(parent, iconName) {
+const addIconToFigure = (parent, iconName) => {
     const icon = document.createElement('p');
     icon.innerHTML = `<i class="fas fa-${iconName}"></i>`;
     icon.classList.add('figure-icon');
     parent.appendChild(icon);
-}
+};
 
-function renderLoader(parent) {
-    const loader = `
-        <div class="spinner">
-          <div class="double-bounce1"></div>
-          <div class="double-bounce2"></div>
-        </div>
-    `;
-    parent.insertAdjacentHTML('beforeend', loader);
-}
+const renderLoader = () => {
+    document.querySelector('.spinner-overlay').style.display = 'block';
+};
 
-function clearLoader() {
-    const loader = basicElements.spinnerOverlay;
-    if (loader) loader.parentElement.removeChild(loader);
-}
+const clearLoader = () => {
+    document.querySelector('.spinner-overlay').style.display = 'none';
+};
 
-function createNavbar() {
+const createNavbar = () => {
     try {
         const navbar = document.createElement('nav-bar');
         const sideNav = document.createElement('side-nav');
@@ -47,14 +41,14 @@ function createNavbar() {
             'Statistik Covid-19': ['Indonesia', 'Dunia'],
         };
 
-        basicElements.container.insertAdjacentElement('beforebegin', navbar);
+        basicElements.header.insertAdjacentElement('afterbegin', navbar);
         navbar.appendChild(sideNav);
     } catch (e) {
         alert('Terjadi kesalahan saat merender navbar');
     }
-}
+};
 
-function createSummaryStatisticsFigure(data) {
+const createSummaryStatisticsFigure = (data) => {
     const dirawatCard = document.createElement('card-figure');
     const positifCard = document.createElement('card-figure');
     const sembuhCard = document.createElement('card-figure');
@@ -89,9 +83,9 @@ function createSummaryStatisticsFigure(data) {
     } catch (e) {
         alert('Terjadi kesalahan saat merender statistik');
     }
-}
+};
 
-function createProvinsiStatisticsTable(tableHeader, tableData) {
+const createProvinsiStatisticsTable = (tableHeader, tableData) => {
     try {
         const tableStat = document.createElement('stat-table');
         tableStat.tableHeader = tableHeader;
@@ -118,11 +112,11 @@ function createProvinsiStatisticsTable(tableHeader, tableData) {
     } catch (e) {
         alert('Terjadi kesalahan saat merender statistik provinsi');
     }
-}
+};
 
 // MAIN APPLICATION ENTRY
 
-async function main() {
+const main = async () => {
     renderLoader(basicElements.spinnerOverlay);
 
     try {
@@ -140,6 +134,6 @@ async function main() {
     } catch (e) {
         alert('Halaman gagal dimuat. Silahkan refresh ulang halaman');
     }
-}
+};
 
 export default main;
